@@ -1,0 +1,38 @@
+class Solution{
+  public:
+  
+  
+ // creat a dummy nodes and a pointer if 
+ //if val <curr->data create a node and insert the values/
+ //return new head;
+    Node *sortedInsert(struct Node* head, int data) {
+       
+       struct Node *curr= head;
+       struct Node *d=new Node(-1);
+       d->next=head;
+       struct Node  *t=d;
+       int f=0;
+      
+      while(curr!=NULL)
+      {
+          if(data<curr->data)
+          {
+              f=1;
+              struct Node *n=new Node(data); 
+              t->next=n;
+              n->next=curr;
+              break;
+          }
+          t=curr;
+          //t=t->next;
+          curr=curr->next;
+      }
+      if(f==0)
+      {
+          struct Node *n=new Node(data); 
+              t->next=n; 
+      }
+     return d->next;
+       
+    }
+};
